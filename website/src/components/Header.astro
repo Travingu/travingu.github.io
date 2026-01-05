@@ -1,10 +1,14 @@
 ---
+import Social from './Social.astro';
 ---
-<a href="#title">About</a>
-<a href="#skills">Skills</a>
-<a href="#experience">Experience</a>
-<a href="#projects">Projects</a>
-<a href="#education">Education</a>
+<div id="head">
+    <a href="#title">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <Social platform="github" username="Travingu"/>
+</div>
 
 <style>
     a {
@@ -12,9 +16,14 @@
         color: #f2fdff;
         background-color: #564787;
         text-decoration: none;
+        
     }
-
-    html {
+    
+    #head {
+        padding: 2rem;
+        background-color: #f2fdff;
+        top: 0rem;
         position: sticky;
     }
+
 </style>

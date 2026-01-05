@@ -1,38 +1,40 @@
 html {
-  background-color: #f1f5f9;
-  font-family: sans-serif;
-}
+    background-color: #f2fdff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}   
 
 body {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
-  line-height: 1.5;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 80ch;
+    padding: 1rem;
+    line-height: 1.5;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 h1 {
-  margin: 1rem 0;
-  font-size: 2.5rem;
+    margin: 1rem 0;
+    font-size: 2.5rem;
 }
 
-/* nav links */
-.menu {
-  background-color: #0d0950;
-  border: none;
-  color: #fff;
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 5px 10px;
-}
-:has(.menu[aria-expanded="true"]) .nav-links {
-  display: unset;
+#major {
+    margin: 0;
+    font-size: 2rem;
+    color: #564787;
 }
 
-.menu {
-    display:none;
+#skills {
+    display: block;
+}
+
+#summary {
+    font-size: 1.25rem;
+}
+
+.Titles {
+    text-align: center;
+    font-size: 2rem;
 }

@@ -1,4 +1,17 @@
 ---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Name
+const name = "Travis"
+const fullName = name + " Nguyen"
+
+// Education
+const major = "Electrical and Computer Engineering"
+const school = "University of Washington"
+const interests = ["Software Development"] // TODO
+const languages = ["HTML", "CSS", "JavaScript", "Java", "Lua"]
 ---
 
 <html lang="en">
@@ -7,12 +20,28 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} >
-    <title>Astro</title>
+    <title>{fullName} - Portfolio</title>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
-    <h1>My Astro Site</h1>
+    <Header/>
+
+    <h1 id="title">{fullName}</h1>
+    <p id="major">{major}</p>
+    <p id="summary">An {major} student at {school}</p>
+
+    <h2 id="skills" class="Titles">Skills</h2>
+    <ul>
+      {languages.map((language) => <p>{language}</p>)}
+    </ul>
+
+    <h2 id="experience" class="Titles">Experience</h2>
+
+
+    <h2 id="projects" class="Titles">Projects</h2>
+
+    
+    <h2 id="education" class="Titles">Education</h2>
+    <p>{school}</p>
+    <Footer/>
   </body>
 </html>

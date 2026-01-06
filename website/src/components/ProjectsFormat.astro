@@ -29,6 +29,10 @@ const { title, date, summary, link, typeOfLink, skills } = Astro.props as Props
         padding: 1rem;
         border-radius: 15px;
     }
+
+    a:hover {
+        font-size: 1.1rem;
+    }
     
     #date {
         margin: 0;
@@ -60,5 +64,9 @@ const { title, date, summary, link, typeOfLink, skills } = Astro.props as Props
         width: fit-content;
         color: #564787;
         display: inline-flex;
+    }
+
+    .skills:hover {
+        font-size: 1.1rem;
     }
 </style>

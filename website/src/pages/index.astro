@@ -3,6 +3,9 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Experiences from '../components/Experiences.astro';
 import Skills from '../components/Skills.astro';
+import Coursework from '../components/Coursework.astro';
+import WashingtonLogo from '../assets/Washington_Huskies_logo.png';
+import { Image } from 'astro:assets';
 
 // Name
 const name = "Travis"
@@ -11,6 +14,9 @@ const fullName = name + " Nguyen"
 // Education
 const major = "Electrical and Computer Engineering"
 const school = "University of Washington"
+const GPA = "3.38"
+const honors = ["Dean's List"]
+const awardString = honors.map(award => ` ${award}`).join() // Makes the string look good
 const interests = ["Software Development"] // TODO
 
 ---
@@ -63,5 +69,19 @@ const interests = ["Software Development"] // TODO
 
     <h2 class="Titles">Education</h2>
     <p class="BasicText">My College education and coursework</p>
+    <br>
+    <div class="edu">
+      <h3>{school} - Seattle</h3>
+      <Image id="WashingtonLogo" src={WashingtonLogo} alt="University of Washington Logo" width=200 />
+    </div>
+    <div class="edu">
+      <ol id="BasicEducationInfo">
+        <li>Major: {major}</li>
+        <li>GPA: {GPA}</li>
+        <li>Honors: {awardString}</li>
+      </ol>
+    </div>
+    <h2 style="text-align: center;">Coursework</h2>
+    <Coursework />
   </body>
 </html>

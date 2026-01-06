@@ -1,0 +1,40 @@
+---
+export interface Props{
+    age: string;
+    year: string;
+    autumn: string[];
+    winter: string[];
+    spring: string[];
+}
+const { age, year, autumn, winter, spring } = Astro.props as Props
+---
+<div class="year">
+    <h2> {age} Year | {year} </h2>
+</div>
+<div class="year">
+    <div class="column">
+        <h3>Autumn</h3>
+        {autumn.map((course) => <p>{course}</p>)}
+    </div>
+    <div class="column">
+        <h3>Winter</h3>
+        {winter.map((course) => <p>{course}</p>)}
+    </div>
+    <div class="column">
+        <h3>Spring</h3>
+        {spring.map((course) => <p>{course}</p>)}
+    </div>
+</div>
+
+<style>
+    .year {
+        float:left;
+        width: 50%;
+        padding: 10px;
+    }
+    .column {
+        float: left;
+        width: 33.33%;
+        padding: 10px;
+    }
+</style>

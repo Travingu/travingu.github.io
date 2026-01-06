@@ -1,0 +1,45 @@
+---
+export interface Props {
+    title: string
+    skills: string[];
+}
+const { title, skills } = Astro.props as Props;
+---
+<div class="box">
+    <h3 class="titleBoxes">{title}</h3>
+    {skills.map((skill) => <p class="BasicText language">{skill}</p>)} 
+</div>
+
+<style>
+    .box {
+        background-color: #a89dce;
+        border-radius: 15px;
+        margin: 2rem;
+        padding: 1rem;
+        text-align: center;
+    }
+        
+    .titleBoxes {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    .language {
+        margin: 0.5rem 0.5rem;
+        background-color: #564787;
+        width: fit-content;
+        padding: 0.25rem 1rem;
+        border-radius: 10px;
+        display: inline-flex;
+        color: #f2fdff;
+    }
+
+    .language:hover {
+        font-size: 1.5rem;
+        color: #a89dce;
+    }
+
+</style>
+
+
+

@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import Header from '../components/Header.astro';
+import Experiences from '../components/Experiences.astro';
+import Skills from '../components/Skills.astro';
 
 // Name
 const name = "Travis"
@@ -10,8 +12,7 @@ const fullName = name + " Nguyen"
 const major = "Electrical and Computer Engineering"
 const school = "University of Washington"
 const interests = ["Software Development"] // TODO
-const frontLanguages = ["HTML", "CSS", "JavaScript"]
-const backLanguages =["Java", "Lua"]
+
 ---
 
 <html lang="en">
@@ -23,34 +24,44 @@ const backLanguages =["Java", "Lua"]
     <title>{fullName} | Portfolio</title>
   </head>
   <body>
-    <Header/>
 
-    <h1 id="title">{fullName}</h1>
+    <!-- About Teleport -->
+    <div id="title"></div>
+    <Header/>
+    <h1>{fullName}</h1>
     <p id="major">{major}</p>
+
+     <!-- Skills Teleport -->
+     <div id="skills"></div>
+
+     <!-- Summary -->
     <p id="summary">An {major} student at {school}</p>
 
-    <h2 id="skills" class="Titles">Skills</h2>
+    
+    <h2 class="Titles">Skills</h2>
     <p class="BasicText">Languages, tools, and technologies curated from <br>personal projects, work experience, and education</p>
-    <!-- Change class="BasicText" on line below since it will be in a different format than plain text -->
-    <div class="filterBoxes">
-      <div class="box frontEnd">
-        <h3 class="titleBoxes">Front End Languages</h3>
-        {frontLanguages.map((language) => <p class="BasicText language">{language}</p>)} 
-      </div>
-      <div class="box backEnd">
-        <h3 class="titleBoxes">Back End Languages</h3>
-        {backLanguages.map((language) => <p class="BasicText language">{language}</p>)}
-      </div>
-    </div>
+    <Skills/>
 
-    <h2 id="experience" class="Titles">Experience</h2>
+    <!-- Experience Teleport -->
+    <div id="experience"></div>
+    <br><br><br>
+
+    <h2 class="Titles">Experience</h2>
     <p class="BasicText">Professional career, internship, or research experience.</p>
+    <Experiences/>
 
-    <h2 id="projects" class="Titles">Projects</h2>
+     <!-- Projects Teleport -->
+    <div id="projects"></div>
+    <br><br><br>
+
+    <h2 class="Titles">Projects</h2>
     <p class="BasicText">Personal projects and activites that advanced my skillset.</p>
     
-    <h2 id="education" class="Titles">Education</h2>
+    <!-- Education Teleport -->
+    <div id="education"></div>
+    <br><br><br>
+
+    <h2 class="Titles">Education</h2>
     <p class="BasicText">My College education and coursework</p>
-    <p>{school}</p> 
   </body>
 </html>

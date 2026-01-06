@@ -1,0 +1,59 @@
+---
+import type { ImageFunction } from 'astro:content';
+import { Image } from 'astro:assets';
+
+export interface Props {
+    experiences: string;
+    details: string[];
+    company: string;
+    date: string;
+    imageLocation: ImageMetadata;
+    imageAlt: string;
+} 
+
+const {experiences, details, company, date, imageLocation, imageAlt} = Astro.props as Props
+---
+<div class="experiences">
+    <Image class="image" src={imageLocation} alt={imageAlt} width={50} height={50}/>
+    <h3>{experiences}</h3>
+    <p class="company">{company} | {date}</p>
+    <div class="details">
+        {details.map((detail) => <p class="detail">{detail}</p>)}
+    </div>
+</div>
+
+<style>
+
+    .image {
+        float:left;
+        border: 1px solid #00100B;
+        border-radius: 7px;
+        margin: 1.5rem 1rem 0 1rem;
+        padding: 0.25em;
+        background-color: #dddddd;
+    }
+
+    .experiences {
+        border-radius: 15px;
+        background-color: #bbbbbb;
+        margin: 1rem;
+    }
+
+    .company {
+        color: black;
+        margin: 0;
+        margin-left: 1rem;
+    }
+
+    h3 {
+        padding: 1rem;
+        margin-bottom: 0;
+        width: fit-content;
+    }
+
+    .detail {
+        display: block;
+        margin-top: 0;
+        padding: 1rem;
+    }
+</style>

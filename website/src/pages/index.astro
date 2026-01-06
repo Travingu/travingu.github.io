@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Experiences from '../components/Experiences.astro';
 import Skills from '../components/Skills.astro';
 import Coursework from '../components/Coursework.astro';
+import Projects from '../components/Projects.astro';
 import WashingtonLogo from '../assets/Washington_Huskies_logo.png';
 import { Image } from 'astro:assets';
 
@@ -62,7 +63,7 @@ const interests = ["Software Development"] // TODO
 
     <h2 class="Titles">Projects</h2>
     <p class="BasicText">Personal projects and activites that advanced my skillset.</p>
-    
+    <Projects/>
     <!-- Education Teleport -->
     <div id="education"></div>
     <br><br><br>
@@ -70,10 +71,12 @@ const interests = ["Software Development"] // TODO
     <h2 class="Titles">Education</h2>
     <p class="BasicText">My College education and coursework</p>
     <br>
+
     <div class="edu">
       <h3>{school} - Seattle</h3>
       <Image id="WashingtonLogo" src={WashingtonLogo} alt="University of Washington Logo" width=200 />
     </div>
+
     <div class="edu">
       <ol id="BasicEducationInfo">
         <li>Major: {major}</li>
@@ -81,7 +84,9 @@ const interests = ["Software Development"] // TODO
         <li>Honors: {awardString}</li>
       </ol>
     </div>
+
     <h2 style="text-align: center;">Coursework</h2>
     <Coursework />
+
   </body>
 </html>

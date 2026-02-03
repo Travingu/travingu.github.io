@@ -11,7 +11,7 @@ import { Image } from 'astro:assets';
 
 // Name
 const name = "Travis"
-const fullName = name + " Nguyen"
+const fullName = "Travis Nguyen"
 
 // Education
 const major = "Electrical and Computer Engineering"
@@ -32,62 +32,59 @@ const interests = ["Software Development"] // TODO
     <title>{fullName} | Portfolio</title>
   </head>
   <body>
-
-    <!-- About Teleport -->
-    <div id="title"></div>
     <Header/>
-    <h1>{fullName}</h1>
-    <p id="major">{major}</p>
-
-     <!-- Skills Teleport -->
-     <div id="skills"></div>
-
-     <!-- Summary -->
-    <p id="summary">An {major} student at {school}</p>
-
     
-    <h2 class="Titles">Skills</h2>
-    <p class="BasicText">Languages, tools, and technologies curated from <br>personal projects, work experience, and education</p>
-    <Skills/>
+    <main>
+      <section id="title">
+        <h1>{fullName}</h1>
+        <p id="major">{major}</p>
+        <p id="summary">An {major} student at {school}</p>
+      </section>
 
-    <!-- Experience Teleport -->
-    <div id="experience"></div>
-    <br><br><br>
+      <div class="separator"></div>
 
-    <h2 class="Titles">Experience</h2>
-    <p class="BasicText">Professional career, internship, or research experience.</p>
-    <Experiences/>
+      <section id="skills">
+        <h2>Skills</h2>
+        <p>Languages, tools, and technologies curated from <br>personal projects, work experience, and education</p>
+        <Skills/>
+      </section>
 
-     <!-- Projects Teleport -->
-    <div id="projects"></div>
-    <br><br><br>
+      <div class="separator"></div>
 
-    <h2 class="Titles">Projects</h2>
-    <p class="BasicText">Personal projects and activities that advanced my skillset.</p>
-    <Projects/>
-    <!-- Education Teleport -->
-    <div id="education"></div>
-    <br><br><br>
+      <section id="experience">
+        <h2>Experience</h2>
+        <p>Professional career, internship, or research experience.</p>
+        <Experiences/>
+      </section>
 
-    <h2 class="Titles">Education</h2>
-    <p class="BasicText">My College education and coursework</p>
-    <br>
+      <div class="separator"></div>
 
-    <div class="edu">
-      <h3>{school} - Seattle</h3>
-      <Image id="WashingtonLogo" src={WashingtonLogo} alt="University of Washington Logo" width=200 />
-    </div>
+      <section id="projects">
+        <h2>Projects</h2>
+        <p>Personal projects and activities that advanced my skillset.</p>
+        <Projects/>
+      </section>
 
-    <div class="edu">
-      <ol id="BasicEducationInfo">
-        <li>Major: {major}</li>
-        <li>GPA: {GPA}</li>
-        <li>Honors: {awardString}</li>
-      </ol>
-    </div>
+      <div class="separator"></div>
 
-    <h2 style="text-align: center;">Coursework</h2>
-    <Coursework />
+      <section id="education">
+        <h2>Education</h2>
+        <p>My College education and coursework</p>
+        
+        <div>
+          <h3>{school} - Seattle</h3>
+          <Image src={WashingtonLogo} alt="University of Washington Logo" width={200} />
+        </div>
 
+        <ol>
+          <li>Major: {major}</li>
+          <li>GPA: {GPA}</li>
+          <li>Honors: {awardString}</li>
+        </ol>
+
+        <h2>Coursework</h2>
+        <Coursework />
+      </section>
+    </main>
   </body>
 </html>

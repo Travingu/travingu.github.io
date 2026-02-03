@@ -1,10 +1,122 @@
 ---
 import ProjectsFormat from "./ProjectsFormat.astro";
+
+const projects = [
+    {
+        title: "HackSU 2026 - VibeCheck.ai",
+        date: "January 2026",
+        summary: "Participated in a 24 hour Hackathon, building an app which analyzes what someone is wearing and gives suggestions based on what it detects. It focuses on color matching and overall outfit balance to help users improve their look instantly.",
+        link: "https://github.com/sluong05/vibecheck-web",
+        typeOfLink: "GitHub",
+        skills: ["Python", "JavaScript", "MediaPipe", "OpenCV"]
+    },
+    {
+        title: "Husky Micromouse",
+        date: "January 2026 - Present",
+        summary: "Helped start up and lead a new engineering organization at the University of Washington. Together, we built a small autonomous robot that competes to find the fastest route through an unknown maze.",
+        link: "https://huskylink.washington.edu/organization/huskymicromouse",
+        typeOfLink: "Website",
+        skills: ["Circuitry", "C++"]
+    }
+];
 ---
 
-<ProjectsFormat title="HackSU 2026 - VibeCheck.ai" date="January 24th, 2026 - January 25th, 2026" summary="Participated in a 24 hour Hackathon, building an app which analyzes what someone is wearing and gives suggestions based on what it detects. It focuses on color matching and overall outfit balance to help users improve their look instantly."
- link="https://github.com/sluong05/vibecheck-web" typeOfLink="GitHub Repository" skills={["Python", "JavaScript", "MediaPipe", "OpenCV"]}/>
+<div class="carousel-container">
+    <button class="carousel-btn prev" aria-label="Previous Project">&#10094;</button>
+    
+    <div class="carousel-track-container">
+        <ul class="carousel-track">
+            {projects.map((project) => (
+                <li class="carousel-slide">
+                    <ProjectsFormat {...project} />
+                </li>
+            ))}
+        </ul>
+    </div>
 
-<ProjectsFormat title="Husky Micromouse" date="January 2026 - Present" summary="Helped start up and lead a new engineering organization at the University of Washington. Together, we built a small autonomous robot that competes to find the fastest route through an unknown maze."
- link="" typeOfLink="Website" skills={["Circuitry", "C++"]}/>
+    <button class="carousel-btn next" aria-label="Next Project">&#10095;</button>
+</div>
 
+<style>
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carousel-track-container {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .carousel-track {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+        min-width: 100%;
+        box-sizing: border-box;
+        padding: 0 1rem;
+    }
+
+    .carousel-btn {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #564787;
+        padding: 0 0.5rem;
+        z-index: 10;
+    }
+
+    .carousel-btn:hover {
+        color: #000;
+        transform: scale(1.1);
+    }
+</style>
+
+<script>
+    const track = document.querySelector('.carousel-track') as HTMLElement;
+    const slides = Array.from(track.children);
+    const nextBtn = document.querySelector('.next') as HTMLElement;
+    const prevBtn = document.querySelector('.prev') as HTMLElement;
+    
+    let currentIndex = 0;
+
+    const updateButtons = () => {
+        prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
+        prevBtn.style.cursor = currentIndex === 0 ? 'default' : 'pointer';
+        
+        nextBtn.style.opacity = currentIndex === slides.length - 1 ? '0.3' : '1';
+        nextBtn.style.cursor = currentIndex === slides.length - 1 ? 'default' : 'pointer';
+    };
+
+    const updateSlidePosition = () => {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateButtons();
+    };
+
+    // Initialize buttons
+    updateButtons();
+
+    nextBtn?.addEventListener('click', () => {
+        if (currentIndex < slides.length - 1) {
+            currentIndex++;
+            updateSlidePosition();
+        }
+    });
+
+    prevBtn?.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlidePosition();
+        }
+    });
+</script>

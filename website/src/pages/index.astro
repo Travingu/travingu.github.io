@@ -2,7 +2,6 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Experiences from '../components/Experiences.astro';
-import Skills from '../components/Skills.astro';
 import Coursework from '../components/Coursework.astro';
 import Projects from '../components/Projects.astro';
 import WashingtonLogo from '../assets/Washington_Huskies_logo.png';
@@ -39,14 +38,6 @@ const interests = ["Software Development"] // TODO
         <h1>{fullName}</h1>
         <p id="major">{major}</p>
         <p id="summary">An {major} student at {school}</p>
-      </section>
-
-      <div class="separator"></div>
-
-      <section id="skills">
-        <h2>Skills</h2>
-        <p>Languages, tools, and technologies curated from <br>personal projects, work experience, and education</p>
-        <Skills/>
       </section>
 
       <div class="separator"></div>

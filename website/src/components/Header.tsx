@@ -8,21 +8,24 @@ export default function Header() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="sticky top-0 z-[100] flex flex-wrap items-center justify-center bg-brand-bg p-8 [@media(max-width:636px)]:items-start">
-      <div
-        className="hidden cursor-pointer p-[10px] [@media(max-width:636px)]:block"
+    <div className="absolute right-8 top-8 z-[100] flex flex-col items-end">
+      <button
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded={expanded}
+        className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full border-none bg-brand-primary p-0"
         onClick={() => setExpanded((prev) => !prev)}
       >
-        <span className="my-[5px] block h-[3px] w-[25px] bg-brand-primary" />
-        <span className="my-[5px] block h-[3px] w-[25px] bg-brand-primary" />
-        <span className="my-[5px] block h-[3px] w-[25px] bg-brand-primary" />
-      </div>
+        <span className="flex flex-col gap-[5px]">
+          <span className="block h-[3px] w-[18px] rounded-full bg-brand-bg" />
+          <span className="block h-[3px] w-[18px] rounded-full bg-brand-bg" />
+          <span className="block h-[3px] w-[18px] rounded-full bg-brand-bg" />
+        </span>
+      </button>
 
       <div
-        className={`relative -top-1 flex flex-wrap items-center justify-center gap-4 [@media(max-width:636px)]:w-full [@media(max-width:636px)]:flex-col [@media(max-width:636px)]:gap-2 [@media(max-width:636px)]:overflow-hidden [@media(max-width:636px)]:transition-all [@media(max-width:636px)]:duration-300 [@media(max-width:636px)]:ease-out ${
-          expanded
-            ? '[@media(max-width:636px)]:max-h-[500px] [@media(max-width:636px)]:pt-4 [@media(max-width:636px)]:opacity-100'
-            : '[@media(max-width:636px)]:max-h-0 [@media(max-width:636px)]:opacity-0'
+        className={`flex flex-col items-end gap-2 overflow-hidden transition-all duration-300 ease-out ${
+          expanded ? 'max-h-[500px] pt-4 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <a href="#title" className={linkClass} onClick={() => setExpanded(false)}>

@@ -36,7 +36,7 @@ export default function App() {
 
         <section id="experience">
           <h2 className="my-4 text-4xl">Experience</h2>
-          <p>Professional career, internship, or research experience.</p>
+          <p className="pb-4">Professional career, internship, or research experience.</p>
           <Experiences />
         </section>
 

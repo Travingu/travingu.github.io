@@ -16,24 +16,26 @@ export default function ExperienceFormat({
   imageAlt,
 }: ExperienceFormatProps) {
   return (
-    <div className="m-4 rounded-2xl bg-brand-card">
+    <div className="mb-4 flex flex-1 gap-4 rounded-2xl bg-brand-card p-4">
       <img
-        className="float-left mt-6 mr-4 mb-0 ml-4 rounded-[7px] border border-brand-dark bg-brand-image-bg p-1"
+        className="h-[50px] w-[50px] shrink-0 rounded-[7px] border border-brand-dark bg-brand-image-bg p-1"
         src={imageLocation}
         alt={imageAlt}
         width={50}
         height={50}
       />
-      <h3 className="mb-0 w-fit p-4">{experiences}</h3>
-      <p className="m-0 ml-4 text-black">
-        {company} | {date}
-      </p>
-      <div>
-        {details.map((detail) => (
-          <p key={detail} className="mt-0 block p-4">
-            {detail}
-          </p>
-        ))}
+      <div className="flex flex-col gap-2">
+        <h3 className="m-0">{experiences}</h3>
+        <p className="m-0 text-black">
+          {company} | {date}
+        </p>
+        <div className="flex flex-col gap-2">
+          {details.map((detail) => (
+            <p key={detail} className="m-0">
+              {detail}
+            </p>
+          ))}
+        </div>
       </div>
     </div>
   );

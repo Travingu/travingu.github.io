@@ -1,3 +1,5 @@
+export type ProjectCategory = 'software' | 'hardware';
+
 export interface ProjectsFormatProps {
   title: string;
   date: string;
@@ -5,6 +7,7 @@ export interface ProjectsFormatProps {
   link: string;
   typeOfLink: string;
   skills: string[];
+  category: ProjectCategory;
 }
 
 export default function ProjectsFormat({

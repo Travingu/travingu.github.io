@@ -21,7 +21,7 @@ const Separator = () => (
 export default function App() {
   return (
     <>
-      <Header />
+      <Header fullName={fullName} />
 
       <main className="mx-auto w-full max-w-[80ch] p-4 leading-normal">
         <section id="title">

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ProjectsFormat, { type ProjectsFormatProps } from './ProjectsFormat';
+import ProjectsFormat, { type ProjectCategory, type ProjectsFormatProps } from './ProjectsFormat';
 
 const projects: ProjectsFormatProps[] = [
   {
@@ -10,6 +10,7 @@ const projects: ProjectsFormatProps[] = [
     link: 'https://github.com/sluong05/vibecheck-web',
     typeOfLink: 'GitHub',
     skills: ['Python', 'JavaScript', 'MediaPipe', 'OpenCV'],
+    category: 'software',
   },
   {
     title: 'Husky Micromouse',
@@ -19,6 +20,7 @@ const projects: ProjectsFormatProps[] = [
     link: 'https://huskylink.washington.edu/organization/huskymicromouse',
     typeOfLink: 'Website',
     skills: ['Circuitry', 'C', 'Luau'],
+    category: 'hardware',
   },
   {
     title: 'PyMiDio',
@@ -28,50 +30,46 @@ const projects: ProjectsFormatProps[] = [
     link: 'https://github.com/Travingu/PyMiDio',
     typeOfLink: 'GitHub',
     skills: ['Python', 'PyQt6'],
+    category: 'software',
   },
 ];
 
-const btnClass =
-  'border-none bg-transparent px-2 text-3xl text-brand-primary disabled:cursor-default disabled:opacity-30 enabled:cursor-pointer enabled:hover:scale-110 enabled:hover:text-black';
+const filters: { label: string; value: ProjectCategory | 'all' }[] = [
+  { label: 'All', value: 'all' },
+  { label: 'Software', value: 'software' },
+  { label: 'Hardware', value: 'hardware' },
+];
 
 export default function Projects() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [filter, setFilter] = useState<ProjectCategory | 'all'>('all');
+
+  const filteredProjects = projects.filter(
+    (project) => filter === 'all' || project.category === filter,
+  );
 
   return (
-    <div className="m-4">
-      <div className="w-full overflow-hidden rounded-2xl">
-        <ul
-          className="m-0 flex list-none p-0 transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {projects.map((project) => (
-            <li key={project.title} className="box-border min-w-full">
-              <ProjectsFormat {...project} />
-            </li>
-          ))}
-        </ul>
+    <div className="m-4 flex flex-col gap-4">
+      <div className="flex items-center gap-2">
+        {filters.map(({ label, value }) => (
+          <button
+            key={value}
+            type="button"
+            onClick={() => setFilter(value)}
+            className={`cursor-pointer rounded-[20px] border border-brand-primary px-4 py-1 transition-colors duration-200 ease-in-out ${
+              filter === value
+                ? 'bg-brand-primary text-brand-bg'
+                : 'bg-transparent text-brand-primary hover:bg-brand-project'
+            }`}
+          >
+            {label}
+          </button>
+        ))}
       </div>
 
-      <div className="mt-2 flex items-center justify-center gap-6">
-        <button
-          type="button"
-          aria-label="Previous Project"
-          className={btnClass}
-          disabled={currentIndex === 0}
-          onClick={() => setCurrentIndex((i) => Math.max(0, i - 1))}
-        >
-          &#10094;
-        </button>
-
-        <button
-          type="button"
-          aria-label="Next Project"
-          className={btnClass}
-          disabled={currentIndex === projects.length - 1}
-          onClick={() => setCurrentIndex((i) => Math.min(projects.length - 1, i + 1))}
-        >
-          &#10095;
-        </button>
+      <div className="flex flex-col gap-4">
+        {filteredProjects.map((project) => (
+          <ProjectsFormat key={project.title} {...project} />
+        ))}
       </div>
     </div>
   );

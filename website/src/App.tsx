@@ -10,7 +10,7 @@ const fullName = 'Travis Nguyen';
 // Education
 const major = 'Electrical and Computer Engineering';
 const school = 'University of Washington';
-const GPA = '3.39'; // Add this later
+const GPA = '3.42'; // Add this later
 const honors = ["Dean's List"];
 const awardString = honors.map((award) => ` ${award}`).join(); // Makes the string look good
 

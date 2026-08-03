@@ -18,7 +18,7 @@ export default function Header({ fullName }: HeaderProps) {
         <img src={NameLogo} alt={fullName} className="h-8 w-auto" />
       </a>
 
-      <div className="flex flex-col items-end">
+      <div className="relative flex flex-col items-end">
         <button
           type="button"
           aria-label="Toggle navigation menu"
@@ -34,7 +34,7 @@ export default function Header({ fullName }: HeaderProps) {
         </button>
 
         <div
-          className={`flex flex-col items-end gap-2 overflow-hidden transition-all duration-300 ease-out ${
+          className={`absolute right-0 top-full z-10 flex flex-col items-end gap-2 overflow-hidden transition-all duration-300 ease-out ${
             expanded ? 'max-h-[500px] pt-4 opacity-100' : 'max-h-0 opacity-0'
           }`}
         >

@@ -14,7 +14,7 @@ export default function Header({ fullName }: HeaderProps) {
 
   return (
     <div className="flex w-full items-start justify-between bg-brand-bg p-8">
-      <a href="#title">
+      <a href="https://travingn.dev/">
         <img src={NameLogo} alt={fullName} className="h-8 w-auto" />
       </a>
 

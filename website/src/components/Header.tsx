@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Social from './Social';
 import NameLogo from '../assets/NameLogo.svg';
 
 const linkClass =

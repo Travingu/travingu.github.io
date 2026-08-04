@@ -53,7 +53,6 @@ export default function Header({ fullName }: HeaderProps) {
           <a href="#education" className={linkClass} onClick={() => setExpanded(false)}>
             Education
           </a>
-          <Social platform="github" username="Travingu" />
         </div>
       </div>
     </div>

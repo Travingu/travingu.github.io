@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import ProjectsFormat, { type ProjectCategory, type ProjectsFormatProps } from './ProjectsFormat';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const projects: ProjectsFormatProps[] = [
   {
@@ -48,6 +49,8 @@ export default function Projects() {
   const [page, setPage] = useState(0);
   const [visible, setVisible] = useState(true);
   const fadeTimeout = useRef<number | undefined>(undefined);
+  const panelRef = useRef<HTMLDivElement>(null);
+  useScrollReveal(panelRef);
 
   const filteredProjects = projects.filter(
     (project) => filter === 'all' || project.category === filter,
@@ -80,7 +83,7 @@ export default function Projects() {
   );
 
   return (
-    <div className="lg:w-[110%] lg:-ml-[5%]">
+    <div ref={panelRef} className="lg:w-[110%] lg:-ml-[5%]">
       <div className="m-4 flex flex-col gap-4">
         <div className="flex items-center gap-2">
           {filters.map(({ label, value }) => (

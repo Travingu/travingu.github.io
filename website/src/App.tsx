@@ -2,6 +2,7 @@ import Header from './components/Header';
 import Experiences from './components/Experiences';
 import Coursework from './components/Coursework';
 import Projects from './components/Projects';
+import Reveal from './components/Reveal';
 import WashingtonLogo from './assets/Washington_Huskies_logo.png';
 
 // Name
@@ -25,48 +26,58 @@ export default function App() {
 
       <main className="mx-auto w-full max-w-[80ch] p-4 leading-normal">
         <section id="title">
-          <h1 className="my-4 text-4xl">{fullName}</h1>
-          <p className="m-0 text-2xl text-brand-primary">{major}</p>
-          <p className="text-2xl">
-            An {major} student at {school}
-          </p>
+          <Reveal>
+            <h1 className="my-4 text-4xl">{fullName}</h1>
+            <p className="m-0 text-2xl text-brand-primary">{major}</p>
+            <p className="text-2xl">
+              An {major} student at {school}
+            </p>
+          </Reveal>
         </section>
 
         <Separator />
 
         <section id="experience">
-          <h2 className="my-4 text-4xl">Experience</h2>
-          <p className="pb-4">Professional career, internship, or research experience.</p>
+          <Reveal>
+            <h2 className="my-4 text-4xl">Experience</h2>
+            <p className="pb-4">Professional career, internship, or research experience.</p>
+          </Reveal>
           <Experiences />
         </section>
 
         <Separator />
 
         <section id="projects">
-          <h2 className="my-4 text-4xl">Projects</h2>
-          <p>Personal projects and activities that advanced my skillset.</p>
+          <Reveal>
+            <h2 className="my-4 text-4xl">Projects</h2>
+            <p>Personal projects and activities that advanced my skillset.</p>
+          </Reveal>
           <Projects />
         </section>
 
         <Separator />
 
         <section id="education">
-          <h2 className="my-4 text-4xl">Education</h2>
-          <p>My College education and coursework</p>
+          <Reveal>
+            <h2 className="my-4 text-4xl">Education</h2>
+            <p>My College education and coursework</p>
+          </Reveal>
 
-          <div className="m-4">
+          <Reveal as="div" className="m-4">
             <h3>{school} - Seattle</h3>
             <img src={WashingtonLogo} alt="University of Washington Logo" width={200} />
-          </div>
+          </Reveal>
 
-          <ol className="m-4">
+          <Reveal as="ol" className="m-4">
             <li>Major: {major}</li>
             <li>GPA: {GPA}</li>
             <li>Honors: {awardString}</li>
-          </ol>
+          </Reveal>
 
           <Separator />
-          <h2 className="my-4 text-4xl">Coursework</h2>
+          <Reveal>
+            <h2 className="my-4 text-4xl">Coursework</h2>
+          </Reveal>
           <Coursework />
         </section>
       </main>

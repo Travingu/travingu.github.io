@@ -1,6 +1,8 @@
+import { useRef } from 'react';
 import ExperienceFormat, { type ExperienceFormatProps } from './ExperienceFormat';
 import BoeingLogo from '../assets/boeing_Logo.webp';
 import WashingtonLogo from '../assets/Washington_Huskies_logo.png';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const experiences: ExperienceFormatProps[] = [
   {
@@ -24,10 +26,13 @@ const experiences: ExperienceFormatProps[] = [
 ];
 
 export default function Experiences() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  useScrollReveal(containerRef, { selector: '[data-reveal-item]', stagger: 0.12 });
+
   return (
-    <div>
+    <div ref={containerRef}>
       {experiences.map((experience) => (
-        <div key={experience.experiences} className="flex gap-4">
+        <div key={experience.experiences} data-reveal-item className="flex gap-4">
           <div className="flex flex-col items-center gap-2">
             <span className="h-4 w-4 shrink-0 rounded-full border-2 border-brand-primary bg-brand-bg" />
             <span className="mb-2 w-[3px] flex-1 bg-brand-primary" />

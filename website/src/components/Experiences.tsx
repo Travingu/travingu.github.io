@@ -17,7 +17,9 @@ const experiences: ExperienceFormatProps[] = [
   },
   {
     experiences: 'ITS-DS Systems Student Assistant',
-    details: ['hi'],
+    details: [
+      'Student System Staff within Information Technology Services & Digital Strategies at the UW Libraries',
+    ],
     company: 'UW Libraries',
     date: 'July 2026 - Present',
     imageLocation: WashingtonLogo,

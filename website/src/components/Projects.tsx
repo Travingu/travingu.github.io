@@ -33,6 +33,16 @@ const projects: ProjectsFormatProps[] = [
     skills: ['Python', 'PyQt6'],
     category: 'software',
   },
+  {
+    title: 'Personal Website',
+    date: 'October 2025 - Present',
+    summary:
+      'Built a website with Games, Blog, Portfolio, and other Projects as an alternative to a traditionall Resume',
+    link: 'https://travingn.dev',
+    typeOfLink: 'Website',
+    skills: ['React', 'TailwindCSS', 'AWS Amplify', 'AWS Route 53'],
+    category: 'software',
+  }
 ];
 
 const filters: { label: string; value: ProjectCategory | 'all' }[] = [

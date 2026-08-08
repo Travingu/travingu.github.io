@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Social from './Social';
 import NameLogo from '../assets/NameLogo.svg';
 
 const linkClass =
@@ -53,7 +52,6 @@ export default function Header({ fullName }: HeaderProps) {
           <a href="#education" className={linkClass} onClick={() => setExpanded(false)}>
             Education
           </a>
-          <Social platform="github" username="Travingu" />
         </div>
       </div>
     </div>

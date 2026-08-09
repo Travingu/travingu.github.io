@@ -12,7 +12,7 @@ export default function Header({ fullName }: HeaderProps) {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="flex w-full items-start justify-between bg-brand-bg p-8">
+    <div className="sticky top-0 z-20 flex h-24 w-full items-center justify-between bg-brand-bg px-8">
       <a href="https://travingn.dev/">
         <img src={NameLogo} alt={fullName} className="h-8 w-auto" />
       </a>

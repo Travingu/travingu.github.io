@@ -25,7 +25,7 @@ const Separator = () => (
 // At lg+, each section fills the viewport and scroll-snaps into place so only one
 // is ever fully at rest on screen; the inactive ones fade out instead of stacking.
 const sectionClass = (isActive: boolean) =>
-  `lg:flex lg:min-h-[calc(100vh-6rem)] lg:flex-col lg:justify-center lg:snap-start lg:transition-opacity lg:duration-500 ${
+  `lg:flex lg:min-h-[calc(100vh-6rem)] lg:flex-col lg:justify-start lg:pt-16 lg:snap-start lg:scroll-mt-24 lg:transition-opacity lg:duration-500 ${
     isActive ? 'lg:opacity-100' : 'lg:pointer-events-none lg:opacity-0'
   }`;
 

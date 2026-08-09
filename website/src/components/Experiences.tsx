@@ -1,31 +1,7 @@
 import { useRef } from 'react';
-import ExperienceFormat, { type ExperienceFormatProps } from './ExperienceFormat';
-import BoeingLogo from '../assets/boeing_Logo.webp';
-import WashingtonLogo from '../assets/Washington_Huskies_logo.png';
+import ExperienceFormat from './ExperienceFormat';
+import { experiences } from '../data/experiences';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-
-const experiences: ExperienceFormatProps[] = [
-  {
-    experiences: 'EQA Component Testing Intern',
-    details: [
-      'Used technical forensics methods (x-ray, microscopy, mechanical/electrical testing, destructive physical analysis, chemical analysis) to identify root cause of failures.',
-    ],
-    company: 'Boeing',
-    date: 'July 2023 - September 2023',
-    imageLocation: BoeingLogo,
-    imageAlt: 'Boeing Logo',
-  },
-  {
-    experiences: 'ITS-DS Systems Student Assistant',
-    details: [
-      'Student System Staff within Information Technology Services & Digital Strategies at the UW Libraries',
-    ],
-    company: 'UW Libraries',
-    date: 'July 2026 - Present',
-    imageLocation: WashingtonLogo,
-    imageAlt: 'UW Logo',
-  },
-];
 
 export default function Experiences() {
   const containerRef = useRef<HTMLDivElement>(null);

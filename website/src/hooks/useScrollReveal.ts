@@ -10,17 +10,27 @@ export interface ScrollRevealOptions {
   stagger?: number;
   /** ScrollTrigger start position. */
   start?: string;
+  /** ScrollTrigger end position — controls when the target fades back out. */
+  end?: string;
   /** Values in this array retrigger the reveal setup (e.g. when list content changes). */
   deps?: unknown[];
 }
 
 /**
- * Reveals a container (or its matching children) with a subtle fade + rise as it
- * scrolls into view. No-ops instantly under prefers-reduced-motion.
+ * Fades a container (or its matching children) in with a subtle rise as it scrolls
+ * into view, and back out as it scrolls out of view (either direction). No-ops
+ * instantly under prefers-reduced-motion.
  */
 export function useScrollReveal(
   containerRef: RefObject<HTMLElement | null>,
-  { selector, y = 24, stagger = 0.1, start = 'top 85%', deps = [] }: ScrollRevealOptions = {},
+  {
+    selector,
+    y = 24,
+    stagger = 0.1,
+    start = 'top 85%',
+    end = 'bottom top',
+    deps = [],
+  }: ScrollRevealOptions = {},
 ) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useLayoutEffect(() => {
@@ -49,7 +59,8 @@ export function useScrollReveal(
           scrollTrigger: {
             trigger: container,
             start,
-            once: true,
+            end,
+            toggleActions: 'play reverse play reverse',
           },
         },
       );

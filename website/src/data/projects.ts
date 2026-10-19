@@ -15,7 +15,7 @@ export const projects: ProjectsFormatProps[] = [
     title: 'Husky Micromouse',
     date: 'January 2026 - Present',
     summary:
-      'Helped start up and lead a new engineering organization at the University of Washington. Together, we built a small autonomous robot that competes to find the fastest route through an unknown maze.',
+      'Cofounded and help lead a new engineering organization at the University of Washington. Together, we built a small autonomous robot that competes to find the fastest route through an unknown maze.',
     link: 'https://huskylink.washington.edu/organization/huskymicromouse',
     typeOfLink: 'Website',
     skills: ['Circuitry', 'C', 'Luau'],
